@@ -1,5 +1,5 @@
 class Equipo:
-    def _init_(self, conferencia, division, partidos_perdidos, partidos_ganados, eficiencia_ofensiva, eficiencia_defensiva, estrella_de_tres_puntos, estrella_de_bloqueos, acceso_a_las_finales, anillos):
+    def __init__(self, conferencia, division, partidos_perdidos, partidos_ganados, eficiencia_ofensiva, eficiencia_defensiva, estrella_de_tres_puntos, estrella_de_bloqueos, acceso_a_las_finales, anillos):
         self._conferencia = conferencia
         self._division = division
         self._partidos_perdidos = partidos_perdidos
@@ -51,6 +51,6 @@ class Equipo:
     def anillos(self):
         return self._anillos
 
-    def _repr_(self):
+    def __repr__(self):
         return f"{self._conferencia} {self._division} {self._partidos_ganados} {self._partidos_perdidos} {self._eficiencia_ofensiva} {self._eficiencia_defensiva} {self._estrella_de_tres_puntos} {self._estrella_de_bloqueos} {self._acceso_a_las_finales} {self._anillos}"
     
