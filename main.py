@@ -1,3 +1,4 @@
+import json
 from estructuras.arbol_binario import ArbolBST
 
 from menu import menu_principal
