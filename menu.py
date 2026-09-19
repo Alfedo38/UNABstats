@@ -1,5 +1,14 @@
 from jugadores import buscar_jugador
 
+def buscar_equipo(arbol):
+    nombre_a_buscar = input("Ingrese el nombre del equipo a buscar: ")lower()
+    resultado = arbol.buscar(nombre_a_buscar)
+    if resultado:
+        print("\n--- Equipo Encontrado ---")
+        print(f"Datos: {resultado}")
+    else:
+        print("\nNo se encontro ningun equipo con ese nombre.")
+
 def menu_principal (arbol):
     while True:
         print("""
