@@ -1,8 +1,8 @@
 from jugadores import buscar_jugador
 
 def buscar_equipo(arbol):
-    nombre_a_buscar = input("Ingrese el nombre del equipo a buscar: ")lower()
-    resultado = arbol.buscar(nombre_a_buscar)
+    nombre_a_buscar = input("Ingrese el nombre del equipo a buscar: ").lower()
+    resultado = arbol.buscar(nombre_a_buscar, clave=lambda e: e['nombre'].lower())
     if resultado:
         print("\n--- Equipo Encontrado ---")
         print(f"Datos: {resultado}")
