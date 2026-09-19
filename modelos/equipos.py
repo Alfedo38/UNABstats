@@ -1,5 +1,6 @@
 class Equipo:
-    def __init__(self, conferencia, division, partidos_perdidos, partidos_ganados, eficiencia_ofensiva, eficiencia_defensiva, estrella_de_tres_puntos, estrella_de_bloqueos, acceso_a_las_finales, anillos):
+    def __init__(self, nombre, conferencia, division, partidos_perdidos, partidos_ganados, eficiencia_ofensiva, eficiencia_defensiva, estrella_de_tres_puntos, estrella_de_bloqueos, acceso_a_las_finales, anillos):
+        self._nombre = nombre
         self._conferencia = conferencia
         self._division = division
         self._partidos_perdidos = partidos_perdidos
@@ -10,6 +11,10 @@ class Equipo:
         self._estrella_de_bloqueos = estrella_de_bloqueos
         self._acceso_a_las_finales = acceso_a_las_finales
         self._anillos = anillos
+
+    @property
+    def nombre(self):
+        return self._nombre
 
     @property
     def conferencia(self):
