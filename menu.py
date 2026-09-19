@@ -1,6 +1,6 @@
 from jugadores import buscar_jugador
 
-def menu_principal ():
+def menu_principal (arbol):
     while True:
         print("""
 ========================================
@@ -27,7 +27,7 @@ def menu_principal ():
             buscar_jugador(nombre)
 
         elif opcion == "2":
-            buscar_equipo()
+            buscar_equipo(arbol)
 
         elif opcion == "3":
             ver_top_puntos()
