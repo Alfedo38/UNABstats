@@ -1,3 +1,8 @@
+# Paso 3: Probar que el árbol funciona
+
+A continuación se muestra la salida obtenida en la terminal al ejecutar el script de prueba de árbol binario de búsqueda (BST) con los equipos de la NBA:
+
+text
 Altura del árbol: 5
 
 --- inorder (ordenado alfabéticamente) ---
