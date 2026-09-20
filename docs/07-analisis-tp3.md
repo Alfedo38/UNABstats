@@ -2,7 +2,7 @@
 
 A continuación se muestra la salida obtenida en la terminal al ejecutar el script de prueba de árbol binario de búsqueda (BST) con los equipos de la NBA:
 
-text
+```text
 Altura del árbol: 5
 
 --- inorder (ordenado alfabéticamente) ---
@@ -29,3 +29,4 @@ Altura del árbol: 5
 --- búsquedas ---
 Buscar 'miami heat': <__main__.Equipo object at 0x795135fe8e10>
 Buscar 'zzz': None
+```
