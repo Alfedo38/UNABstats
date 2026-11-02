@@ -11,35 +11,49 @@ def buscar_equipo(arbol_equipos): # ---> se modifica arbol a arbol_equipos
     else:
         print("\nNo se encontro ningun equipo con ese nombre.")
 
-def mostrar_top_equipos_heap():
+def mostrar_top_equipos_heap(arbol_equipos=None): # ---> para que la función pueda usar el árbol y buscar el rating, necesitamos pasarle el árbol como parámetro desde donde se la llama
     print("\n==================================================")
     print("      TOP 5 RECOMENDACIONES DE EQUIPOS (HEAP)     ")
     print("==================================================")
-    heap = MaxHeapNBA()
-    # Cargamos datos rápidos con sus ratings de rendimiento
-    heap.insertar("Boston Celtics", 8.1)
-    heap.insertar("Miami Heat", 0.2)
-    heap.insertar("Golden State Warriors", 2.1)
-    heap.insertar("Los Angeles Lakers", -0.7)
-    heap.insertar("San Antonio Spurs", 8.3)
-    heap.insertar("Chicago Bulls", -1.8)
-    heap.insertar("New York Knicks", 9.3)
-    heap.insertar("Detroit Pistons", 8.8)
-    heap.insertar("Philadelphia 76ers", 2.3)
-    heap.insertar("Milwaukee Bucks", 1.8)
+    
+    # 1. Definimos la misma clase que tenemos en el archivo de prueba
+    class EquipoNBA:
+        def __init__(self, nombre, rating):
+            self.nombre = nombre
+            self.rating = rating
+        def __repr__(self):
+            return f"{self.nombre} (Rating: {self.rating})"
 
-    top_5 = heap.obtener_top_n(5)
-    for i, elemento in enumerate(top_5, 1):
-        # Si 'elemento' viene como una tupla interna de la cátedra:
-        if isinstance(elemento, (tuple, list)):
-            prioridad = elemento[0]
-            equipo = elemento[1]
-        else:
-            # Si viene directamente como el texto del equipo:
-            equipo = elemento
-            prioridad = "Alta" # O lo dejamos como texto genérico de eficiencia
-        
-        print(f" {i}. {equipo} - Rating de Eficiencia: {prioridad}")
+    # 2. La lista de datos duros tal cual se armó en la prueba
+    equipos = [
+        EquipoNBA("Boston Celtics", 8.1),
+        EquipoNBA("Miami Heat", 0.2),
+        EquipoNBA("Golden State Warriors", 2.1),
+        EquipoNBA("Los Angeles Lakers", -0.7),
+        EquipoNBA("San Antonio Spurs", 8.3),
+        EquipoNBA("Chicago Bulls", -1.8),
+        EquipoNBA("New York Knicks", 9.3),
+        EquipoNBA("Detroit Pistons", 8.8),
+        EquipoNBA("Philadelphia 76ers", 2.3),
+        EquipoNBA("Milwaukee Bucks", 1.8)
+    ]
+    
+    # 3. Inicializamos el MaxHeapNBA e insertamos especificando la prioridad
+    heap = MaxHeapNBA()
+    for eq in equipos:
+        heap.insertar(eq, prioridad=eq.rating)
+
+    # 4. Obtenemos el top 5 y lo imprimimos usando el formato de la prueba
+    # Usamos la función que tenga asignada la estructura (obtener_top_n u obtain_top_n)
+    if hasattr(heap, 'obtain_top_n'):
+        top_5 = heap.obtain_top_n(5)
+    else:
+        top_5 = heap.obtener_top_n(5)
+
+    for i, eq in enumerate(top_5, 1):
+        print(f"{i}. {eq}")
+
+    
     print("--------------------------------------------------")
     input("\nPresioná [Enter] para volver...")
 
@@ -110,7 +124,7 @@ def menu_principal (arbol_equipos, arbol_categorias): # ---> menu_pricipal recib
             input("\nPresioná [Enter] para volver al menú principal...")
 
         elif opcion == "8":
-            mostrar_top_equipos_heap()
+            mostrar_top_equipos_heap(arbol_equipos) # ---> acá también pasamos el árbol como en la funcion mostrar_top_equipos_heap()
 
         elif opcion == "9":
             mostrar_red_rivalidades_grafo()
