@@ -3,7 +3,7 @@ from estructuras.avl import AVL
 from estructuras.arbol_general import ArbolGeneral
 from menu import menu_principal
 
-# from estructuras.arbol_binario import ArbolBST ----> modificado (se debe usar AVL y general)
+
 
 def cargar_categorias():
     """Genera la jerarquía de la NBA para el árbol general."""
